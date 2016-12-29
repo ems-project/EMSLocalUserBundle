@@ -1,0 +1,44 @@
+{
+    "name" : "elasticms/local-user-bundle",
+    "description" : "A friendsofsymfony/user-bundle extension bundle for elasticms",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Mathieu De Keyzer",
+        "email" : "mathieu@dekeyzer.net"
+    }],
+    "keywords" : [
+        "elasticms",
+        "FOS user"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "php": ">=5.6",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "elasticms/local-user-bundle": "dev-master"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "^1.3",
+        "friendsofphp/php-cs-fixer": "^1.11",
+        "swiftmailer/swiftmailer": "^4.3 || ^5.0",
+        "symfony/console": "^2.7 || ^3.0",
+        "symfony/phpunit-bridge": "^2.7 || ^3.0",
+        "symfony/validator": "^2.7 || ^3.0",
+        "symfony/yaml": "^2.7 || ^3.0",
+        "phpunit/phpunit": "~4.8|~5.0"
+    },
+    "autoload" : {
+        "psr-4": {
+            "EMS\\LocalUserBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra" : {
+    	"branch-alias" : {
+            "dev-master" : "0.1-dev"
+        }
+    }
+}
