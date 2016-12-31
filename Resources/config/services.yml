@@ -1,4 +1,6 @@
 services:
-#    ems_local_user.example:
-#        class: EMS\LocalUserBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    ems.form.userprofile:
+        class: EMS\LocalUserBundle\Form\UserProfileType
+        arguments: ['@security.token_storage']
+        tags:
+            - { name: form.type }
