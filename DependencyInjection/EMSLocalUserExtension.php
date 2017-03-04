@@ -43,10 +43,22 @@ class EMSLocalUserExtension extends Extension implements PrependExtensionInterfa
     		]);
     	}
 
+    	$configs = $container->getExtensionConfig('ems_core');
+    	
+    	$fromEmail = [
+    			'address' => 'noreply@example.com',
+    			'sender_name' => 'elasticms',
+    	];
+    	
+    	if(isset($configs[0]['from_email'])){
+    		$fromEmail = $configs[0]['from_email'];
+    	}
+    	
     	//preset fos user config for elasticms
     	if (isset($bundles['FOSUserBundle'])) {
     		$container->prependExtensionConfig('fos_user', [
     			'db_driver' => 'orm',
+    			'from_email' => $fromEmail,
     			'firewall_name' => 'main',
     			'user_class' => 'EMS\LocalUserBundle\Entity\User',
     			'profile' => [
