@@ -78,7 +78,7 @@ class DefaultController extends Controller
     							'notice',
     							'User created!'
     							);
-    					return $this->redirectToRoute('user.index');
+    					return $this->redirectToRoute('ems.user.index');
     				}
     			}
     
