@@ -25,15 +25,17 @@
                 <li class="list-group-item">
                   <b>Email</b> <i class="pull-right">{{ user.email }}</i>
                 </li>
-                <li class="list-group-item">
-                  <b>Circles</b> 
-                  <a class="btn btn-sm">&nbsp;</a>
-                  <i class="pull-right">
-                  	{% for circle in user.circles  %}
-                  		{{ circle|data_link|raw }}
-                  	{% endfor %}
-				  </i>
-                </li>
+                {% if circles_object %}
+                    <li class="list-group-item">
+                      <b>{{ circles_object|get_content_type.pluralName }}</b> 
+                      <a class="btn btn-sm">&nbsp;</a>
+                      <i class="pull-right">
+                      	{% for circle in user.circles  %}
+                      		{{ circle|data_link|raw }}
+                      	{% endfor %}
+    				  </i>
+                    </li>
+                {% endif %}
                 <li class="list-group-item">
                   <b>Roles</b> 
                   <a class="btn btn-sm">&nbsp;</a>
