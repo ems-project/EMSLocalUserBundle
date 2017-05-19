@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ url('homepage') }}">
+    <a href="{{ path('homepage') }}">
 		<img alt="elasticms's logo" src="{{ asset('bundles/emscore/images/logo.png') }}" width="360">
 	</a>
   </div>
@@ -66,9 +66,9 @@
 
     <!-- /.social-auth-links -->
 
-    <a href="{{ url('fos_user_resetting_request') }}">I forgot my password</a><br>
+    <a href="{{ path('fos_user_resetting_request') }}">I forgot my password</a><br>
     {% if allow_user_registration %}
-	    <a href="{{ url('fos_user_registration_register') }}" class="text-center">Register a new membership</a>
+	    <a href="{{ path('fos_user_registration_register') }}" class="text-center">Register a new membership</a>
 	{% endif %}
 	  </div>
 	  <!-- /.login-box-body -->
