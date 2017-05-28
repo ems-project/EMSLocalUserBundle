@@ -25,7 +25,7 @@
                 <li class="list-group-item">
                   <b>Email</b> <i class="pull-right">{{ user.email }}</i>
                 </li>
-                {% if circles_object %}
+                {% if circles_object and circles_object|get_content_type %}
                     <li class="list-group-item">
                       <b>{{ circles_object|get_content_type.pluralName }}</b> 
                       <a class="btn btn-sm">&nbsp;</a>
