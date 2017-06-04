@@ -6,6 +6,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 
 class UserProfileType extends AbstractType {
@@ -33,15 +35,15 @@ class UserProfileType extends AbstractType {
 			->remove('username');
 		
 // 		if($this->tokenStorage->getToken()->getUser()->getAllowedToConfigureWysiwyg()){
-			$builder->add('wysiwygProfile', ChoiceType::class, [
-						'required' => true,
-						'label' => 'WYSIWYG profile',
-						'choices' => [
-							'Standard' => 'standard',
-							'Light' => 'light',
-							'Full' => 'full',
-							'Custom' => 'custom'
-						]
+			$builder
+				->add('wysiwygProfile', EntityType::class, [
+					'required' => false,
+					'label' => 'WYSIWYG profile',
+					'class' => 'EMSCoreBundle:WysiwygProfile',
+					'choice_label' => 'name',
+					'query_builder' => function (EntityRepository $er) {
+						return $er->createQueryBuilder('p')->orderBy('p.orderKey', 'ASC');
+					},
 				])
 				->add('wysiwygOptions', TextareaType::class, [
 						'required' => false,

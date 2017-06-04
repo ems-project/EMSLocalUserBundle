@@ -5,6 +5,7 @@ namespace EMS\LocalUserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use EMS\CoreBundle\Entity\WysiwygProfile;
 
 /**
  * @ORM\Entity
@@ -57,9 +58,10 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
     private $allowedToConfigureWysiwyg;
 
     /**
-     * @var string
+     * @var WysiwygProfile
      *
-     * @ORM\Column(name="wysiwyg_profile", length=20, type="text", nullable=true)
+     * @ORM\ManyToOne(targetEntity="EMS\CoreBundle\Entity\WysiwygProfile", cascade={})
+     * @ORM\JoinColumn(name="wysiwyg_profile_id", referencedColumnName="id")
      */
     private $wysiwygProfile;
 
@@ -255,11 +257,11 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
     /**
      * Set wysiwygProfile
      *
-     * @param string $wysiwygProfile
+     * @param WysiwygProfile $wysiwygProfile
      *
      * @return User
      */
-    public function setWysiwygProfile($wysiwygProfile)
+    public function setWysiwygProfile(WysiwygProfile $wysiwygProfile = null)
     {
         $this->wysiwygProfile = $wysiwygProfile;
 
@@ -269,7 +271,7 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
     /**
      * Get wysiwygProfile
      *
-     * @return string
+     * @return WysiwygProfile
      */
     public function getWysiwygProfile()
     {
