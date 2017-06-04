@@ -22,7 +22,33 @@ class Version20170603190729 extends AbstractMigration
         $this->addSql('CREATE TABLE wysiwyg_profile (id INT NOT NULL, created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, modified TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, name VARCHAR(255) NOT NULL, config TEXT DEFAULT NULL, orderKey INT NOT NULL, PRIMARY KEY(id))');
         
         
-        $this->addSql('INSERT INTO wysiwyg_profile VALUES (1, \'2017-06-03 23:51:05\', \'2017-06-04 00:26:23\', \'Standard\', \'{
+        $this->addSql('INSERT INTO wysiwyg_profile VALUES (1, \'2017-06-03 23:51:05\', \'2017-06-04 02:32:49\', \'Standard\', \'{
+"plugins": "adv_link,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"toolbarGroups": [{
+"name": "clipboard",
+"groups": ["clipboard", "undo"]
+}, {
+"name": "clipboard",
+"groups": ["clipboard", "undo"]
+}, {
+"name": "editing",
+"groups": ["spellchecker"]
+}, {
+"name": "links"
+}, {
+"name": "insert"
+}, {
+"name": "tools",
+"groups": ["mode"]
+}, "/", {
+"name": "basicstyles",
+"groups": ["basicstyles", "cleanup"]
+}, {
+"name": "paragraph",
+"groups": ["list", "indent", "blocks", "align"]
+}, {
+"name": "styles"
+}]
 }\', 1)');
         $this->addSql('INSERT INTO wysiwyg_profile VALUES (2, \'2017-06-03 22:31:15\', \'2017-06-04 00:26:23\', \'Light\', \'{ 
 "toolbar": [ 
