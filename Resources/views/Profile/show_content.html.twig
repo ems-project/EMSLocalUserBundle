@@ -48,7 +48,7 @@
 				  </i>
                 </li>
                 <li class="list-group-item">
-                  <b>WYSIWYG</b> <i class="pull-right">{{ user.wysiwygProfile.name }}</i>
+                  <b>WYSIWYG</b> <i class="pull-right">{% if user.wysiwygProfile %}{{ user.wysiwygProfile.name }}{% endif %}</i>
                 </li>
               </ul>
 
