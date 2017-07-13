@@ -12,6 +12,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Doctrine\ORM\EntityManager;
+use EMS\CoreBundle\Repository\ContentTypeRepository;
+use EMS\CoreBundle\Repository\WysiwygProfileRepository;
 
 class DefaultController extends Controller
 {
@@ -31,6 +38,19 @@ class DefaultController extends Controller
     public function addUserAction(Request $request)
     {
     	$user = new User();
+    	
+    	/** @var EntityManager $em */
+    	$em = $this->getDoctrine()->getManager();
+    		
+    	/** @var WysiwygProfileRepository $repository */
+    	$repository = $em->getRepository('EMSCoreBundle:WysiwygProfile');
+    	$result = $repository->findBy([], ['orderKey' => 'asc'], 1);
+    	if(count($result) > 0){
+    		$user->setWysiwygProfile($result[0]);
+    	}
+    	
+    		
+    	
     	$form = $this->createFormBuilder($user)
 	    	->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
 	    	->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
@@ -39,7 +59,28 @@ class DefaultController extends Controller
 	    			'options' => array('translation_domain' => 'FOSUserBundle'),
 	    			'first_options' => array('label' => 'form.password'),
 	    			'second_options' => array('label' => 'form.password_confirmation'),
-	    			'invalid_message' => 'fos_user.password.mismatch',));
+	    			'invalid_message' => 'fos_user.password.mismatch',))
+	    			
+    		->add('allowedToConfigureWysiwyg', CheckboxType::class, [
+    			'required' => false,
+    		])
+	    	->add('wysiwygProfile', EntityType::class, [
+    			'required' => false,
+    			'label' => 'WYSIWYG profile',
+    			'class' => 'EMSCoreBundle:WysiwygProfile',
+    			'choice_label' => 'name',
+    			'query_builder' => function (EntityRepository $er) {
+	    			return $er->createQueryBuilder('p')->orderBy('p.orderKey', 'ASC');
+	    		},
+	    	])
+	    	->add('wysiwygOptions', TextareaType::class, [
+    				'required' => false,
+    				'label' => 'WYSIWYG custom options',
+  					'attr' => [
+    					'rows' => 8,
+    				]
+    		]);
+	    	
     	if ($circleObject = $this->container->getParameter('ems_core.circles_object')) {
     		$form->add('circles', ObjectPickerType::class, [
     				'multiple' => TRUE,
