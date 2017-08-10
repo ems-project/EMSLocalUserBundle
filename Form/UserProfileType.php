@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 class UserProfileType extends AbstractType {
@@ -29,6 +30,9 @@ class UserProfileType extends AbstractType {
 
 		$builder
 			->add ('displayName')
+			->add ('emailNotification', CheckboxType::class, [
+					'required' => false,
+			])
 			->add ('layoutBoxed')
 			->add ('sidebarMini')
 			->add ('sidebarCollapse')

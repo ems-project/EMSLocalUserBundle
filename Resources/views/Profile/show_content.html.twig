@@ -25,6 +25,9 @@
                 <li class="list-group-item">
                   <b>Email</b> <i class="pull-right">{{ user.email }}</i>
                 </li>
+                <li class="list-group-item">
+                  <b>{{ 'Email notification' }}</b> <i class="pull-right fa fa-2x fa-{% if user.emailNotification %}check-{% endif %}square-o"></i>
+                </li>
                 {% if circles_object and circles_object|get_content_type %}
                     <li class="list-group-item">
                       <b>{{ circles_object|get_content_type.pluralName }}</b> 

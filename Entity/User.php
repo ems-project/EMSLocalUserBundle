@@ -71,13 +71,20 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
      * @ORM\Column(name="wysiwyg_options", type="text", nullable=true)
      */
     private $wysiwygOptions;
-
+    
     /**
      * @var bool
      *
      * @ORM\Column(name="layout_boxed", type="boolean")
      */
     private $layoutBoxed;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="email_notification", type="boolean")
+     */
+    private $emailNotification;
 
     /**
      * @var bool
@@ -406,5 +413,40 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
     public function getAuthTokens()
     {
         return $this->authTokens;
+    }
+    
+    
+    /**
+     * Set emailNotification
+     *
+     * @param boolean $emailNotification
+     *
+     * @return User
+     */
+    public function setEmailNotification($emailNotification)
+    {
+    	$this->emailNotification = $emailNotification;
+    	
+    	return $this;
+    }
+    
+    /**
+     * Get emailNotification
+     *
+     * @return boolean
+     */
+    public function getEmailNotification()
+    {
+    	return $this->emailNotification;
+    }
+    
+    /**
+     * Is enabled
+     *
+     * @return boolean
+     */
+    public function isEnabled()
+    {
+    	return $this->enabled;
     }
 }
