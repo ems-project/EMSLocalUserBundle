@@ -84,7 +84,7 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
      *
      * @ORM\Column(name="email_notification", type="boolean")
      */
-    private $emailNotification;
+    private $emailNotification = true;
 
     /**
      * @var bool
