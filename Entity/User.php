@@ -10,7 +10,7 @@ use EMS\CoreBundle\Entity\WysiwygProfile;
 /**
  * @ORM\Entity
  * @ORM\Table(name="`user`")
- * //@ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="EMS\LocalUserBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser implements \EMS\CoreBundle\Entity\User
