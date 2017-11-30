@@ -19,6 +19,7 @@ class Version20170829123500 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('ALTER TABLE content_type ADD publish_role VARCHAR(100) DEFAULT NULL');
+        $this->addSql("UPDATE content_type SET publish_role = 'ROLE_USER'");
     }
 
     /**
