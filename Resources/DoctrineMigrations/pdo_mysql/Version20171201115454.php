@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20170829101534 extends AbstractMigration
+class Version20171201115454 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -17,9 +17,8 @@ class Version20170829101534 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        
-        $this->addSql('ALTER TABLE content_type ADD publish_role VARCHAR(100) DEFAULT NULL');
-        $this->addSql("UPDATE content_type SET publish_role = 'ROLE_USER'");
+
+        $this->addSql('ALTER TABLE revision CHANGE labelField labelField LONGTEXT DEFAULT NULL');
     }
 
     /**
@@ -30,6 +29,6 @@ class Version20170829101534 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE content_type DROP publish_role');
+        $this->addSql('ALTER TABLE revision CHANGE labelField labelField VARCHAR(255) DEFAULT NULL COLLATE utf8_unicode_ci');
     }
 }
