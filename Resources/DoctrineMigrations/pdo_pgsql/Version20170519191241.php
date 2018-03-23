@@ -32,7 +32,6 @@ class Version20170519191241 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('DELETE FROM `i18n` WHERE `identifier` = \'ems.documentation.body\'');
         $this->addSql('DROP INDEX UNIQ_FF561896772E836A');
     }

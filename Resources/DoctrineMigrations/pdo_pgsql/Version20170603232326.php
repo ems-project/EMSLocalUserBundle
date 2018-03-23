@@ -37,7 +37,6 @@ class Version20170603232326 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-//         $this->addSql('CREATE SCHEMA public');
         $this->addSql('ALTER TABLE "user" DROP CONSTRAINT FK_8D93D649A282F7EA');
         $this->addSql('DROP INDEX IDX_8D93D649A282F7EA');
         $this->addSql('ALTER TABLE "user" ADD wysiwyg_profile TEXT DEFAULT NULL');

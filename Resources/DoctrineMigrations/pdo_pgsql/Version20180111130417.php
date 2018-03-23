@@ -30,7 +30,6 @@ class Version20180111130417 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('ALTER TABLE uploaded_asset ALTER size TYPE INT');
         $this->addSql('ALTER TABLE uploaded_asset ALTER size DROP DEFAULT');
     }

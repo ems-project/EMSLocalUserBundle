@@ -30,7 +30,6 @@ class Version20171201120934 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('ALTER TABLE revision ALTER labelField TYPE VARCHAR(255)');
         $this->addSql('ALTER TABLE revision ALTER labelField DROP DEFAULT');
     }
