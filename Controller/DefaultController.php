@@ -7,10 +7,12 @@ use EMS\CoreBundle\Form\Field\ObjectPickerType;
 use EMS\CoreBundle\Form\Field\SubmitEmsType;
 use EMS\CoreBundle\Service\UserService;
 use EMS\LocalUserBundle\Entity\User;
-use FOS\UserBundle\Util\LegacyFormHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -53,9 +55,9 @@ class DefaultController extends Controller
     	
     	$form = $this->createFormBuilder($user)
 	    	->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-	    	->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-	    	->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
-	    			'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
+	    	->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+	    	->add('plainPassword', RepeatedType::class, array(
+	    			'type' => PasswordType::class,
 	    			'options' => array('translation_domain' => 'FOSUserBundle'),
 	    			'first_options' => array('label' => 'form.password'),
 	    			'second_options' => array('label' => 'form.password_confirmation'),
