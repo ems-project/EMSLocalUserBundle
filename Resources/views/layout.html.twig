@@ -1,4 +1,4 @@
-{% extends 'EMSCoreBundle::base.html.twig' %}
+{% extends '@EMSCore/base.html.twig' %}
 
 {% block title %}User management{% endblock %}
 {% block pagetitle %}User management{% endblock %} 
@@ -87,7 +87,7 @@
 		});
 	});   
     </script>
-	{% include 'EMSCoreBundle:app:menu.html.twig' with {
+	{% include '@EMSCore/app/menu.html.twig' with {
 		'item':  'user-index'
 	}%}
 	

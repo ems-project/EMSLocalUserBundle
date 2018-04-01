@@ -125,7 +125,7 @@ class DefaultController extends Controller
     				}
     			}
     
-    			return $this->render('EMSCoreBundle:user:add.html.twig', array(
+    			return $this->render('@EMSCore/user/add.html.twig', array(
     					'form' => $form->createView()
     			));
     }
