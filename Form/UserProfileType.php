@@ -1,10 +1,12 @@
 <?php
 namespace EMS\LocalUserBundle\Form;
 
+use EMS\CoreBundle\EMSCoreBundle;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
@@ -58,6 +60,18 @@ class UserProfileType extends AbstractType {
 				]);			
 // 		}
 	}
+
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        /*set the default option value for this kind of compound field*/
+        parent::configureOptions($resolver);
+        $resolver->setDefault('translation_domain', EMSCoreBundle::TRANS_DOMAIN);
+    }
 	
 	public function getParent()
 	{
