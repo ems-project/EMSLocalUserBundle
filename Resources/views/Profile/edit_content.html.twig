@@ -23,7 +23,7 @@
               	{{ form_row(form.sidebarCollapse) }}
               	
               	{% if form.wysiwygProfile is defined %}
-		    		{% include "EMSCoreBundle:user:wysiwygOptions.html.twig" with {
+		    		{% include "@EMSCore/user/wysiwygOptions.html.twig" with {
 						form: form
 					} %}
 				{% endif %}	
