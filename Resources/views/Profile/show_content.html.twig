@@ -1,4 +1,4 @@
-
+{%- trans_default_domain 'EMSCoreBundle' -%}
 
 <div class="row">
 
@@ -30,24 +30,24 @@
                 </li>
                 {% if circles_object and circles_object|get_content_type %}
                     <li class="list-group-item">
-                      <b>{{ circles_object|get_content_type.pluralName }}</b> 
-                      <a class="btn btn-sm">&nbsp;</a>
-                      <i class="pull-right">
-                      	{% for circle in user.circles  %}
-                      		{{ circle|data_link|raw }}
-                      	{% endfor %}
+                      <b>{{ circles_object|get_content_type.pluralName }} : </b>
+                      <i class="">
+                      	{% for circle in user.circles  -%}
+                            {%- if not loop.first and not loop.last %}, {% endif -%}
+                            {%- if not loop.first and loop.last %} &amp; {% endif -%}
+                            <span class="text-nowrap">{{- circle|data_label|raw -}}</span>
+                      	{%- endfor %}
     				  </i>
                     </li>
                 {% endif %}
                 <li class="list-group-item">
-                  <b>Roles</b> 
-                  <a class="btn btn-sm">&nbsp;</a>
-                  <i class="pull-right">
-                  	{% for role in user.roles  %}
-                  		{% if not loop.first and not loop.last %},{% endif %}
-                  		{% if not loop.first and loop.last %}&amp;{% endif %}
-                  		{{ role|i18n }}
-                  	{% endfor %}
+                  <b>Roles : </b>
+                  <i class="">
+                  	{% for role in user.roles  -%}
+                  		{%- if not loop.first and not loop.last %}, {% endif -%}
+                  		{%- if not loop.first and loop.last %} &amp; {% endif -%}
+                  		{{- role|trans -}}
+                  	{%- endfor %}
 				  </i>
                 </li>
                 <li class="list-group-item">
