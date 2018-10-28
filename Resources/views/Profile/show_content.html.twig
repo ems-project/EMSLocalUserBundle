@@ -33,9 +33,7 @@
                       <b>{{ circles_object|get_content_type.pluralName }} : </b>
                       <i class="">
                       	{% for circle in user.circles  -%}
-                            {%- if not loop.first and not loop.last %}, {% endif -%}
-                            {%- if not loop.first and loop.last %} &amp; {% endif -%}
-                            <span class="text-nowrap">{{- circle|data_label|raw -}}</span>
+                            <span class="badge text-nowrap">{{- circle|data_label|raw -}}</span>&nbsp;
                       	{%- endfor %}
     				  </i>
                     </li>
@@ -44,9 +42,7 @@
                   <b>Roles : </b>
                   <i class="">
                   	{% for role in user.roles  -%}
-                  		{%- if not loop.first and not loop.last %}, {% endif -%}
-                  		{%- if not loop.first and loop.last %} &amp; {% endif -%}
-                  		{{- role|trans -}}
+                        <span class="badge text-nowrap">{{- role|trans -}}</span>&nbsp;
                   	{%- endfor %}
 				  </i>
                 </li>
