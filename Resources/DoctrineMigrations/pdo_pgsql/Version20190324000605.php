@@ -8,15 +8,14 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20180830190210 extends AbstractMigration
+final class Version20190324000605 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE revision ADD finalized_date TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL');
-        $this->addSql('UPDATE revision SET start_time = created');
+        $this->addSql('ALTER TABLE uploaded_asset ALTER sha1 TYPE VARCHAR(128)');
     }
 
     public function down(Schema $schema) : void
@@ -24,6 +23,6 @@ final class Version20180830190210 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE revision DROP finalized_date');
+        $this->addSql('ALTER TABLE uploaded_asset ALTER sha1 TYPE VARCHAR(40)');
     }
 }
