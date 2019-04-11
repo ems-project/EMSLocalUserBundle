@@ -1,16 +1,15 @@
 <?php
 namespace EMS\LocalUserBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use EMS\CoreBundle\EMSCoreBundle;
+use EMS\CoreBundle\Form\Field\CodeEditorType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 class UserProfileType extends AbstractType {
@@ -50,14 +49,19 @@ class UserProfileType extends AbstractType {
 					'query_builder' => function (EntityRepository $er) {
 						return $er->createQueryBuilder('p')->orderBy('p.orderKey', 'ASC');
 					},
+                    'attr' => [
+                        'data-live-search' => true,
+                        'class' => 'wysiwyg-profile-picker',
+                    ],
 				])
-				->add('wysiwygOptions', TextareaType::class, [
-						'required' => false,
-						'label' => 'WYSIWYG custom options',
-						'attr' => [
-							'rows' => 8,
-						]
-				]);			
+				->add('wysiwygOptions', CodeEditorType::class, [
+                    'label' => 'WYSIWYG Options',
+                    'required' => false,
+                    'language' => 'ace/mode/json',
+                    'attr' => [
+                        'class' => 'wysiwyg-profile-options',
+                    ],
+                ]);
 // 		}
 	}
 

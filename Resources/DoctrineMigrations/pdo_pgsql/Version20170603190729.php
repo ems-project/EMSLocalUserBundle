@@ -24,6 +24,8 @@ class Version20170603190729 extends AbstractMigration
         
         $this->addSql('INSERT INTO wysiwyg_profile VALUES (1, \'2017-06-03 23:51:05\', \'2017-06-04 02:32:49\', \'Standard\', \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "clipboard",
@@ -52,6 +54,9 @@ class Version20170603190729 extends AbstractMigration
 }]
 }\', 1)');
         $this->addSql('INSERT INTO wysiwyg_profile VALUES (2, \'2017-06-03 22:31:15\', \'2017-06-04 00:26:23\', \'Light\', \'{ 
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
+"language": "en",
 "toolbar": [ 
 ["Styles", "Format", "Font", "FontSize"], 
 ["Bold", "Italic"], 
@@ -63,6 +68,8 @@ class Version20170603190729 extends AbstractMigration
 }\', 2)');
         $this->addSql('INSERT INTO wysiwyg_profile VALUES (3, \'2017-06-03 23:07:24\', \'2017-06-04 00:26:42\', \'Full\', \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,font,format,horizontalrule,htmlwriter,image2,iframe,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pagebreak,pastefromword,pastetext,preview,print,removeformat,resize,save,scayt,selectall,showblocks,showborders,smiley,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "document",
@@ -97,6 +104,8 @@ class Version20170603190729 extends AbstractMigration
 }\', 3)');
         $this->addSql('INSERT INTO wysiwyg_profile VALUES (4, \'2017-06-03 23:11:33\', \'2017-06-04 00:26:42\', \'Sample\', \'{
 "uiColor": "#66AB16",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,flash,floatingspace,font,format,horizontalrule,htmlwriter,image2,iframe,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pagebreak,pastefromword,pastetext,preview,print,removeformat,resize,save,scayt,selectall,showblocks,showborders,smiley,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
 "toolbarGroups": [{

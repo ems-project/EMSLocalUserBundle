@@ -20,6 +20,8 @@ class Version20170623194743 extends AbstractMigration
 
         $this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "clipboard",
@@ -48,6 +50,8 @@ class Version20170623194743 extends AbstractMigration
 }]
 }\' where name = \'Standard\'');
         $this->addSql('UPDATE wysiwyg_profile SET config = \'{
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbar": [
 ["Styles", "Format", "Font", "FontSize"],
@@ -60,6 +64,8 @@ class Version20170623194743 extends AbstractMigration
 }\' where name = \'Light\'');
         $this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea,font,showblocks,smiley,iframe,pagebreak,print",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "document",
@@ -95,6 +101,8 @@ class Version20170623194743 extends AbstractMigration
         $this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "uiColor": "#66AB16",
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,flash,floatingspace,font,format,horizontalrule,htmlwriter,image2,iframe,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pagebreak,pastefromword,pastetext,preview,print,removeformat,resize,save,scayt,selectall,showblocks,showborders,smiley,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "document",
@@ -144,6 +152,8 @@ class Version20170623194743 extends AbstractMigration
     	
     	$this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "clipboard",
@@ -172,6 +182,8 @@ class Version20170623194743 extends AbstractMigration
 }]
 }\' where name = \'Standard\'');
     	$this->addSql('UPDATE wysiwyg_profile SET config = \'{
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbar": [
 ["Styles", "Format", "Font", "FontSize"],
@@ -184,6 +196,8 @@ class Version20170623194743 extends AbstractMigration
 }\' where name = \'Light\'');
     	$this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea,font,showblocks,smiley,iframe,pagebreak,print",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "document",
@@ -219,6 +233,8 @@ class Version20170623194743 extends AbstractMigration
     	$this->addSql('UPDATE wysiwyg_profile SET config = \'{
 "uiColor": "#66AB16",
 "plugins": "adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,flash,floatingspace,font,format,horizontalrule,htmlwriter,image2,iframe,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pagebreak,pastefromword,pastetext,preview,print,removeformat,resize,save,scayt,selectall,showblocks,showborders,smiley,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea",
+"pasteFromWordRemoveFontStyles": true,
+"pasteFromWordRemoveStyles": true,
 "language": "en",
 "toolbarGroups": [{
 "name": "document",
