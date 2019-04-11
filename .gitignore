@@ -1,6 +1,7 @@
 /.sass-cache/
 /.settings/
 .DS_Store
-/.buildpath
 /.project
+/.buildpath
+*.yml~
 /.idea/
