@@ -15,7 +15,7 @@
 	"require" : {
 		"php" : ">=7.1.3",
 		"friendsofsymfony/user-bundle": "^2.1",
-		"elasticms/core-bundle": ">=1.9.50"
+		"elasticms/core-bundle": ">=1.9.53"
 	},
 	"autoload" : {
 		"psr-4" : {
