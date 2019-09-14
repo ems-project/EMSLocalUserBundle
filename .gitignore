@@ -4,4 +4,4 @@
 /.project
 /.buildpath
 *.yml~
-/.idea/
+/vendor/
