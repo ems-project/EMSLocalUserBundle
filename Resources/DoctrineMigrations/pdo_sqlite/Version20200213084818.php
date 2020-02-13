@@ -15,7 +15,6 @@ final class Version20200213084818 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE session (id VARCHAR(128) NOT NULL, data BLOB NOT NULL, time INTEGER UNSIGNED NOT NULL, lifetime INTEGER NOT NULL, PRIMARY KEY(id))');
         $this->addSql('DROP INDEX UNIQ_8D93D649C05FB297');
         $this->addSql('DROP INDEX UNIQ_8D93D649A0D96FBF');
         $this->addSql('DROP INDEX UNIQ_8D93D64992FC23A8');
