@@ -15,8 +15,8 @@ final class Version20200224155002 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE content_type ADD defaultCreateLinkDisplay BOOLEAN DEFAULT \'true\' NOT NULL');
-        $this->addSql('ALTER TABLE content_type ADD defaultSearchLinkDisplay BOOLEAN DEFAULT \'true\' NOT NULL');
+        $this->addSql('ALTER TABLE content_type ADD searchLinkDisplayRole VARCHAR(255) DEFAULT \'ROLE_USER\' NOT NULL');
+        $this->addSql('ALTER TABLE content_type ADD createLinkDisplayRole VARCHAR(255) DEFAULT \'ROLE_USER\' NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -25,7 +25,7 @@ final class Version20200224155002 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('ALTER TABLE content_type DROP defaultSearchLinkDisplay');
-        $this->addSql('ALTER TABLE content_type DROP defaultCreateLinkDisplay');
+        $this->addSql('ALTER TABLE content_type DROP searchLinkDisplayRole');
+        $this->addSql('ALTER TABLE content_type DROP createLinkDisplayRole');
     }
 }
