@@ -15,7 +15,6 @@ final class Version20200224131011 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE session (id VARCHAR(128) NOT NULL, data BLOB NOT NULL, time INTEGER UNSIGNED NOT NULL, lifetime INTEGER NOT NULL, PRIMARY KEY(id))');
         $this->addSql('DROP INDEX tuple_index');
         $this->addSql('CREATE TEMPORARY TABLE __temp__revision AS SELECT id, content_type_id, created, modified, auto_save_at, deleted, version, start_time, end_time, draft, lock_by, auto_save_by, lock_until, labelField, finalized_by, sha1, deleted_by, finalized_date, raw_data, auto_save, circles, ouuid FROM revision');
         $this->addSql('DROP TABLE revision');
