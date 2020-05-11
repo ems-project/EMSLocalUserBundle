@@ -5,6 +5,7 @@ namespace EMS\LocalUserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use \EMS\CoreBundle\Entity\User as CoreUser;
 use EMS\CoreBundle\Entity\WysiwygProfile;
 
 /**
@@ -13,7 +14,7 @@ use EMS\CoreBundle\Entity\WysiwygProfile;
  * @ORM\Entity(repositoryClass="EMS\LocalUserBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class User extends BaseUser implements \EMS\CoreBundle\Entity\User
+class User extends BaseUser implements CoreUser
 {
     /**
      * @ORM\Id
