@@ -1,10 +1,11 @@
 <?php
-// src/EMS\UserBundle/Entity/User.php
 
 namespace EMS\LocalUserBundle\Entity;
 
+use EMS\CoreBundle\Security\CoreLdapUser;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use \EMS\CoreBundle\Entity\User as CoreUser;
 use EMS\CoreBundle\Entity\WysiwygProfile;
 
 /**
@@ -13,7 +14,7 @@ use EMS\CoreBundle\Entity\WysiwygProfile;
  * @ORM\Entity(repositoryClass="EMS\LocalUserBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class User extends BaseUser implements \EMS\CoreBundle\Entity\User
+class User extends BaseUser implements CoreUser
 {
     /**
      * @ORM\Id
@@ -128,7 +129,22 @@ class User extends BaseUser implements \EMS\CoreBundle\Entity\User
     		$this->created = $this->modified;
     	}
     }
-    
+
+    public static function fromLdap(CoreLdapUser $ldapUser): self
+    {
+        $user = new static();
+        $user->username = $ldapUser->getUsername();
+        $user->roles = $ldapUser->getRoles();
+        $user->created = $user->modified = new \DateTime('now');
+        $user->circles = [];
+        $user->enabled = true;
+        $user->email = $ldapUser->getEmail();
+        $user->displayName = $ldapUser->getDisplayName();
+        $user->password = \sha1(\random_bytes(10));
+
+        return $user;
+    }
+
     /**
      * Get created
      *
