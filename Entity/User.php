@@ -130,7 +130,7 @@ class User extends BaseUser implements CoreUser
     	}
     }
 
-    public static function fromLdap(CoreLdapUser $ldapUser): CoreUser
+    public static function fromLdap(CoreLdapUser $ldapUser): self
     {
         $user = new static();
         $user->username = $ldapUser->getUsername();
