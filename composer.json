@@ -15,8 +15,9 @@
 	"require" : {
 		"php" : "^7.2",
 		"friendsofsymfony/user-bundle": "^2.1",
-		"elasticms/core-bundle": "~1.11.2"
+		"elasticms/core-bundle": "~1.12.1"
 	},
+	"abandoned": "elasticms/core-bundle",
 	"autoload" : {
 		"psr-4" : {
 			"EMS\\LocalUserBundle\\" : ""
